@@ -10,7 +10,7 @@ def test_set():
     st = Storage({'a': 1, 'b': 2})
     key = 'a'
     st.set(key, 5)
-    assert st.data[key] == 5, f"Value for the key {key} has setted"
+    assert st.data[key] == 5, f"Value for the key {key} wasn't setted"
     key = 'c'
     try:
         st.set(key, 3)
