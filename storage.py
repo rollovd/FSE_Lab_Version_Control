@@ -18,9 +18,12 @@ class Storage:
         else:
             raise Exception
 
-    def set(self):
-        pass
-    
+    def set(self, key, value):
+        if key not in self.data.keys():
+            raise Exception
+
+        self.data[key] = value
+
     def add(self, key, value):
         if key in self.data:
             raise Exception
