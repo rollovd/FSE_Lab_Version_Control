@@ -1,10 +1,30 @@
 from storage import Storage
 
 def test_add():
-    pass
+    st = Storage({'a': 1, 'b': 2})
+    key = 'b'
+    val = 3
+    try:
+        st.add(key, val)
+        assert st.get(key) == 2, "Value for the existing key {} was changed".format(key)
+    except Exception:
+        pass
+    key = 'c'
+    val = 3
+    st.add(key, val)
+    assert st.get(key) == val, "Value for the key {} is not equal to expected or there is no such key".format(key)
 
 def test_remove():
-    pass
+    st = Storage({'a':1, 'b':2})
+    key = 'a'
+    st.remove(key)
+    assert key not in st.data, f"Value for the key {key} wasn't removed "
+    key = 'c'
+
+    try:
+        st.remove(key)
+    except Exception as e:
+        assert True
 
 def test_set():
     st = Storage({'a': 1, 'b': 2})

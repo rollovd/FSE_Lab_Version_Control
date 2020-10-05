@@ -12,14 +12,20 @@ class Storage:
         else:
             return None
 
-    def remove(self):
-        pass
+    def remove(self, key):
+        if key in self.data:
+            del self.data[key]
+        else:
+            raise Exception
 
     def set(self, key, value):
         if key not in self.data.keys():
             raise Exception
 
         self.data[key] = value
-    
-    def add(self):
-        pass
+
+    def add(self, key, value):
+        if key in self.data:
+            raise Exception
+        else:
+            self.data[key] = value
