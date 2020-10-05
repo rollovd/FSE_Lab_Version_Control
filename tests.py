@@ -15,7 +15,16 @@ def test_add():
     assert st.get(key) == val, "Value for the key {} is not equal to expected or there is no such key".format(key)
 
 def test_remove():
-    pass
+    st = Storage({'a':1, 'b':2})
+    key = 'a'
+    st.remove(key)
+    assert key not in st.data, f"Value for the key {key} wasn't removed "
+    key = 'c'
+
+    try:
+        st.remove(key)
+    except Exception as e:
+        assert True
 
 def test_set():
     pass
